@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "CreateGarden";
+}
+@model Capstone.Web.Models.Garden
+
+@if (TempData["Failure"] != null)
+{   
+    <h3 class="alert alert-warning" id="failureMessage">@TempData["Failure"]</h3>
+}
+
+    <div class="form" id="createGardenForm">
+        <h2 class="welcomeMessage" id="createGardenHeader">CreateGarden</h2>
+        <form action="/Home/CreateGarden?Length=4" method="post" class="plot rounded pb-4 pb-md-5 pl-3 pr-3 pl-sm-5 pr-sm-5 pt-4">
+            <div class="d-flex flex-column mb-2">
+                <label for="Name">Name</label>
+                <input required class="form-control" data-val="true" data-val-maxlength="Garden&#39;s Name has a max length of 20 characters." data-val-maxlength-max="20" data-val-required="Please enter your garden&#39;s name." id="Name" name="Name" type="text" value="" />
+                <div class="validationMessage">
+                    <span class="field-validation-valid" data-valmsg-for="Name" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+
+            <div class="d-flex flex-column mb-2">
+                <label for="TempHigh">High Temperature</label>
+                <input required class="form-control" data-val="true" data-val-number="The field High Temperature must be a number." data-val-required="Please enter a number" id="TempHigh" name="TempHigh" type="text" value="0" />
+                <div class="validationMessage">
+                    <span class="field-validation-valid" data-valmsg-for="TempHigh" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+            <div class="d-flex flex-column mb-2">
+                <label for="TempLow">Low Temperature</label>
+                <input required class="form-control" data-val="true" data-val-number="The field Low Temperature must be a number." data-val-required="Please enter a number" id="TempLow" name="TempLow" type="text" value="0" />
+                <div class="validationMessage">
+                    <span class="field-validation-valid" data-valmsg-for="TempLow" data-valmsg-replace="true"></span>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-sample createGardenButton">Create Garden</button>
+        </form>
+    </div>

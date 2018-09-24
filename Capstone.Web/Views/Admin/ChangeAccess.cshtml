@@ -1,0 +1,43 @@
+﻿@using Capstone.Web.Models
+@model ChangeAccessViewModel
+
+<div class="resultMessage">
+    @if (TempData["Success"] != null)
+    {
+        <h3 class="alert alert-success" id="successMessage">@TempData["Success"]</h3>
+    }
+    @if (TempData["Failure"] != null)
+    {
+        <h3 class="alert alert-warning" id="failureMessage">@TempData["Failure"]</h3>
+    }
+</div>
+
+<div class="rounded d-flex flex-column align-items-center form plot updatePlantForm formheader">
+    <div class="formHeader mb-2"><h3>Change User Access</h3></div>
+    <form action="/Admin/ChangeAccess" method="get">
+        <select name="email" onchange="this.form.submit()" class="mb-3">
+            <option disabled selected> -- select an option -- </option>
+            @foreach (User item in Model.UserList)
+            {
+                <option class="plantSelection" value="@item.Email">@item.Email</option>
+            }
+        </select>
+    </form>
+    @if (Model.UserSelected != null)
+    {
+        <div class="rounded d-flex flex-column align-items-center">
+            <div class="mb-3">Selected: @Model.UserSelected.Email</div>
+            @using (Html.BeginForm("ChangeAccess", "Admin", "Post"))
+            {
+                <select name="access">
+                    <option value="2">Client</option>
+                    <option value="1">Administrator</option>
+                </select>
+                <div>
+                    <input type="hidden" value="@Model.UserSelected.Email" name="email" />
+                </div>
+                <button class="mb-2 align-content-end btn btn-create updateRoleButton">Update Role</button>
+            }
+        </div>
+    }
+</div>

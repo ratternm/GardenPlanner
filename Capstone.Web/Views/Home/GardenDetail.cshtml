@@ -1,0 +1,113 @@
+﻿
+@{
+    ViewBag.Title = "GardenDetail";
+    int total = 0;
+}
+@model Capstone.Web.Models.GardenDetailViewModel
+
+@{ int amountOfPlants = 0;
+    int totalPlotCost = 0;
+    }
+<h2 class="welcomeMessage">@Model.Name</h2>
+
+<div class="container">
+    <div class="justify-content-start">
+        <div class="welcomeMessage">Average High: @Model.TempHigh</div>
+        <div class="welcomeMessage mb-3">Average Low: @Model.TempLow</div>
+    </div>
+
+    <div class="container-fluid float-right">
+
+        @*@foreach (var item in Model.GardenPlots)
+            {
+                total += Convert.ToInt32(item.Plant.Cost);
+                <div>
+                    <p>@item.Plant.Name  $@item.Plant.Cost</p>
+                </div>
+
+            }
+                <b>Total Cost: $@total</b>*@
+    </div>
+    <table class="table table-hover plot rounded ">
+        <thead>
+            <tr>
+                <th scope="col">Plot</th>
+                <th scope="col">Plant Assignment</th>
+                <th scope="col">Plant Assigned</th>
+                <th scope="col">Number of Plants</th>
+                <th scope="col">Edit Plot</th>
+                <th scope="col">Delete Plant</th>
+                <th scope="col">Plot Cost</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var plot in Model.GardenPlots)
+            {
+                if (plot.Plant.SizeSq != null)
+                {
+                    amountOfPlants = plot.SizeSqInch / Convert.ToInt32(plot.Plant.SizeSq);
+                    totalPlotCost = amountOfPlants * Convert.ToInt32(plot.Plant.Cost);
+                    total += totalPlotCost;
+                }
+                <tr class="@plot.Name">
+                    <th scope="row">@plot.Name</th>
+                    <th scope="row">
+                        @Html.ActionLink(
+                         "Assign Plant",
+                         "AssignPlants",
+                         "Home",
+                         routeValues: new {
+                             PlotId = plot.Id,
+                             plotCost = totalPlotCost,
+                         }, htmlAttributes: new { @class = "btn btn-create", role = "button", style = "border: none" })
+                    </th>
+                    <th scope="row">
+                        @plot.Plant.Name
+                    </th>
+                    <th scope="row">
+                        @{if (plot.Plant.SizeSq != null)
+                            {
+                        <div>@string.Format("{0:n0}", @amountOfPlants)</div>
+                            }
+                        }
+                    </th>
+                    <th scope="row">
+                        @Html.ActionLink(
+                       "Edit Plots",
+                       "EditPlot",
+                       routeValues: new
+                       {
+                           plotId = plot.Id,
+                       }, htmlAttributes: new { @class = "btn btn-sample", role = "button", style = "border: none" })
+
+                    </th>
+                    <th scope="row">
+                        <a class="btn btn-delete delete" data="/Home/DeletePlot?plotId=@plot.Id" href="" role="button" style="border: none">Delete Plot</a>
+                       
+                    </th>
+                    <th scope="row">$@String.Format("{0:n}", @totalPlotCost)</th>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+    <div>
+        <h3 class="welcomeMessage">Total Garden Cost: $@String.Format("{0:n}", @total)</h3>
+        <div class="container">
+            <div class="row justify-content-end">
+                @Html.ActionLink(
+              "Create New Plot",
+              "CreatePlot",
+              "Home",
+              routeValues: new {
+                  GardenId = Model.Id,
+              },htmlAttributes: new { @class = "btn btn-create createPlotButton", role = "button" }
+
+            )
+            </div>
+        </div>
+    </div>
+</div>
+
+

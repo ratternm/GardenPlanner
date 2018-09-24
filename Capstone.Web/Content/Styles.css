@@ -1,0 +1,482 @@
+﻿
+.validationMessage{
+    color:red;
+}
+
+.logo {
+    width: 200px;
+}
+
+.navigation-top {
+    background-color: black;
+    display:flex;
+    margin-bottom:75px;
+    height:7%;
+    min-width:100%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    position: relative;
+}
+
+body {
+    background-image: url("../Images/agriculture-arable-barley-265216.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.main-container {
+    min-height: 100vh; /* will cover the 100% of viewport */
+    overflow: hidden;
+    display: block;
+    position: relative;
+    padding-bottom: 100px; /* height of your footer */
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+#login {
+    height: 100%;
+    width: 250px;
+}
+
+.contentLinks{
+    padding-right:140px;
+}
+
+.plot {
+    background-color: rgba(255, 255, 255, 0.7);
+    padding:3%;
+}
+
+li{
+    font-family:'Copperplate Gothic';
+}
+
+.kevinp{
+    display: inline-block;
+}
+
+.loginButton{
+    margin-left:65px;
+    margin-top:20px;
+}
+
+.registerButton {
+    margin-left: 55px;
+    margin-top: 20px;
+}
+
+.createPlotButton{
+    margin-right:25px;
+    
+}
+
+.registrationLink {
+    font-size:small;
+}
+
+.dropdownNavbar {
+    background-color: #fff;
+    border-style: solid;
+    border-color: ghostwhite;
+    height:30px;
+    align-content:center;
+}
+
+.dropdownNavbar:hover {
+    border-color:black;
+    border-style:double;
+}
+
+.dropdownNavInterior {
+    background-color: #fff;
+    height:22px;
+}
+
+.dropdownNavInterior:hover {
+    border-bottom-color: black;
+    border-bottom-style: double;
+}
+
+#addPlantForm {
+    width: 400px;
+    height: 100%;
+}
+
+.formHeader{
+    margin-top:20px;
+}
+
+.form {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.updatePlantForm {
+    width: 400px;
+    height: 100%;
+}
+
+.registrationForm{
+    height:100%;
+    min-width:40%;
+    max-width:350px;
+}
+.updateInformationForm {
+    height: 100%;
+    margin-top:40px;
+}
+
+.updateGardenForm {
+    height: 100%;
+    margin-top: 40px;
+}
+
+.profilePageForms button{
+    align-content:center;
+}
+
+.updateInfoButton{
+    justify-content:center;
+}
+.gardenTable{
+    min-width:10%;
+}
+
+
+/*Button Template*/
+.btn-sample {
+    color: #080808;
+    background-color: #DBDBDB;
+    border-color: #080808;
+}
+
+    .btn-sample:hover,
+    .btn-sample:focus,
+    .btn-sample:active,
+    .btn-sample.active,
+    .open .dropdown-toggle.btn-sample {
+        color: #080808;
+        background-color: #B0B0B0;
+    }
+
+    .btn-sample:active,
+    .btn-sample.active,
+    .open .dropdown-toggle.btn-sample {
+        background-image: none;
+    }
+
+    .btn-sample.disabled,
+    .btn-sample[disabled],
+    fieldset[disabled] .btn-sample,
+    .btn-sample.disabled:hover,
+    .btn-sample[disabled]:hover,
+    fieldset[disabled] .btn-sample:hover,
+    .btn-sample.disabled:focus,
+    .btn-sample[disabled]:focus,
+    fieldset[disabled] .btn-sample:focus,
+    .btn-sample.disabled:active,
+    .btn-sample[disabled]:active,
+    fieldset[disabled] .btn-sample:active,
+    .btn-sample.disabled.active,
+    .btn-sample[disabled].active,
+    fieldset[disabled] .btn-sample.active {
+        background-color: #DBDBDB;
+        border-color: #080808;
+    }
+
+    .btn-sample .badge {
+        color: #DBDBDB;
+        background-color: #080808;
+    }
+
+.btn-delete {
+    color: #ffffff;
+    background-color: #DB1F1F;
+    border-color: #FFFFFF;
+}
+
+    .btn-delete:hover,
+    .btn-delete:focus,
+    .btn-delete:active,
+    .btn-delete.active,
+    .open .dropdown-toggle.btn-delete {
+        color: #ffffff;
+        background-color: #FF2121;
+        border-color: #FFFFFF;
+    }
+
+    .btn-delete:active,
+    .btn-delete.active,
+    .open .dropdown-toggle.btn-delete {
+        background-image: none;
+    }
+
+    .btn-delete.disabled,
+    .btn-delete[disabled],
+    fieldset[disabled] .btn-delete,
+    .btn-delete.disabled:hover,
+    .btn-delete[disabled]:hover,
+    fieldset[disabled] .btn-delete:hover,
+    .btn-delete.disabled:focus,
+    .btn-delete[disabled]:focus,
+    fieldset[disabled] .btn-delete:focus,
+    .btn-delete.disabled:active,
+    .btn-delete[disabled]:active,
+    fieldset[disabled] .btn-delete:active,
+    .btn-delete.disabled.active,
+    .btn-delete[disabled].active,
+    fieldset[disabled] .btn-delete.active {
+        background-color: #DB1F1F;
+        border-color: #FFFFFF;
+    }
+
+    .btn-delete .badge {
+        color: #DB1F1F;
+        background-color: #ffffff;
+    }
+
+.btn-create {
+    color: #ffffff;
+    background-color: #29C227;
+    border-color: #FFFFFF;
+}
+
+.btn-create {
+    color: #ffffff;
+    background-color: #29C227;
+    border-color: #000000;
+}
+
+    .btn-create:hover,
+    .btn-create:focus,
+    .btn-create:active,
+    .btn-create.active,
+    .open .dropdown-toggle.btn-create {
+        color: #ffffff;
+        background-color: #32EB2F;
+        border-color: #000000;
+    }
+
+    .btn-create:active,
+    .btn-create.active,
+    .open .dropdown-toggle.btn-create {
+        background-image: none;
+    }
+
+    .btn-create.disabled,
+    .btn-create[disabled],
+    fieldset[disabled] .btn-create,
+    .btn-create.disabled:hover,
+    .btn-create[disabled]:hover,
+    fieldset[disabled] .btn-create:hover,
+    .btn-create.disabled:focus,
+    .btn-create[disabled]:focus,
+    fieldset[disabled] .btn-create:focus,
+    .btn-create.disabled:active,
+    .btn-create[disabled]:active,
+    fieldset[disabled] .btn-create:active,
+    .btn-create.disabled.active,
+    .btn-create[disabled].active,
+    fieldset[disabled] .btn-create.active {
+        background-color: #29C227;
+        border-color: #000000;
+    }
+
+    .btn-create .badge {
+        color: #29C227;
+        background-color: #ffffff;
+    }
+.welcomeMessage {
+    color: whitesmoke;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.registrationSuccessful {
+    height: 100%;
+    max-width: 60%;
+    min-width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.registrationFailure {
+    height: 100%;
+    max-width: 60%;
+    min-width:40%;
+    margin-left:auto;
+    margin-right:auto;
+    text-align:center;
+}
+
+#createGardenForm{
+    max-width:350px;
+}
+
+.createGardenButton {
+    margin-top: 35px;
+}
+
+
+/*CSS based on screen size*/
+@media only screen and (min-width: 1200px) {
+    .createGardenButton {
+        margin-top: 35px;
+    }
+
+    /*.dashboardNavLink {
+        margin-top: auto;
+        margin-bottom: auto;
+        margin-left: 135px;
+    }*/
+}
+
+@media only screen and (min-width: 992px) {
+    .createGardenButton {
+        margin-left:58px;
+    }
+
+    /*.dashboardNavLink {
+        margin-top: auto;
+        margin-bottom: auto;
+        margin-left: 135px;
+    }*/
+}
+
+@media only screen and (min-width: 768px) {
+    .createGardenButton {
+        margin-left: 58px;
+    }
+
+    /*.dashboardNavLink {
+        margin-top: auto;
+        margin-bottom: auto;
+        margin-left: 135px;
+    }*/
+}
+
+@media only screen and (min-width: 576px) {
+    .createGardenButton {
+        margin-left: 58px;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .createGardenButton {
+        margin-left: 20px;
+    }
+}
+.open-button {
+    background-color: #555;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    position: fixed;
+    bottom: 23px;
+    right: 28px;
+    width: 280px;
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+    max-width: 300px;
+    padding: 10px;
+    background-color: white;
+}
+
+    /* Full-width input fields */
+    .form-container input[type=text], .form-container input[type=password] {
+        width: 100%;
+        padding: 15px;
+        margin: 5px 0 22px 0;
+        border: none;
+        background: #f1f1f1;
+    }
+
+        /* When the inputs get focus, do something */
+        .form-container input[type=text]:focus, .form-container input[type=password]:focus {
+            background-color: #ddd;
+            outline: none;
+        }
+
+    /* Set a style for the submit/login button */
+    .form-container .btn {
+        background-color: #4CAF50;
+        color: white;
+        padding: 16px 20px;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        margin-bottom: 10px;
+        opacity: 0.8;
+    }
+
+    /* Add a red background color to the cancel button */
+    .form-container .cancel {
+        background-color: red;
+    }
+
+    /* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+    opacity: 1;
+}
+
+.editPlotPage{
+    max-width: 350px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.editPlotTextbox{
+    width:100%;
+}
+
+.editPlotButton{
+    margin-top:40px;
+    width:100%;
+}
+
+#navbarNavDropdown{
+    margin:auto;
+}
+
+.updateRoleButton{
+    margin-top: 35px;
+}
+
+.resultMessage{
+    width:500px;
+    margin-left: auto;
+    margin-right: auto;
+}

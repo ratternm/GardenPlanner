@@ -1,0 +1,86 @@
+﻿@model Capstone.Web.Models.User
+
+@if (TempData["Failure"] != null)
+{
+    <h3 class="alert alert-warning registrationFailure" id="failureMessage">@TempData["Failure"]</h3>
+}
+<div class="card rounded align-items-center form plot registrationForm">
+    <h3>Register</h3>
+    <form action="/Home/Register?Length=4" method="post" novalidate="novalidate" id="registration_form">
+        <div class="d-flex flex-column mb-2 mt-2">
+            @Html.LabelFor(m => m.FirstName, "First Name")
+            @Html.TextBoxFor(m => m.FirstName)
+            <div class="validationMessage">
+                @Html.ValidationMessageFor(m => m.FirstName)
+            </div>
+        </div>
+        <div class="d-flex flex-column mb-2">
+            @Html.LabelFor(m => m.LastName, "Last Name")
+            @Html.TextBoxFor(m => m.LastName)
+            <div class="validationMessage">
+                @Html.ValidationMessageFor(m => m.LastName)
+            </div>
+        </div>
+        <div class="d-flex flex-column mb-2">
+            @Html.LabelFor(m => m.Email, "Email")
+            @Html.TextBoxFor(m => m.Email)
+            <div class="validationMessage">
+                @Html.ValidationMessageFor(m => m.Email)
+            </div>
+        </div>
+        <div class="d-flex flex-column mb-2">
+            @Html.LabelFor(m => m.Password, "Password")
+            @Html.PasswordFor(m => m.Password)
+            <div class="validationMessage">
+                @Html.ValidationMessageFor(m => m.Password)
+            </div>
+        </div>
+        <div class="d-flex flex-column mb-3">
+            @Html.LabelFor(m => m.ConfirmPassword, "Confirm Password")
+            @Html.PasswordFor(m => m.ConfirmPassword)
+            <div class="validationMessage">
+                @Html.ValidationMessageFor(m => m.ConfirmPassword)
+            </div>
+        </div>
+        <button class="mb-2 align-content-end btn btn-sample registerButton">Submit</button>
+        </form>
+</div>
+
+@*<form action="/Home/Register?Length=4" method="post" novalidate="novalidate">
+    <div class="d-flex flex-column mb-2 mt-2">
+        <label for="FirstName">First Name</label>
+        <input data-val="true" data-val-maxlength="First Name has a max length of 20 characters." data-val-maxlength-max="20" data-val-required="Please enter your first name." id="FirstName" name="FirstName" type="text" value="">
+        <div class="validationMessage">
+            <span class="field-validation-valid" data-valmsg-for="FirstName" data-valmsg-replace="true"></span>
+        </div>
+    </div>
+    <div class="d-flex flex-column mb-2">
+        <label for="LastName">Last Name</label>
+        <input data-val="true" data-val-maxlength="Last Name has a max length of 20 characters." data-val-maxlength-max="20" data-val-required="Please enter your last name." id="LastName" name="LastName" type="text" value="">
+        <div class="validationMessage">
+            <span class="field-validation-valid" data-valmsg-for="LastName" data-valmsg-replace="true"></span>
+        </div>
+    </div>
+    <div class="d-flex flex-column mb-2">
+        <label for="Email">Email</label>
+        <input data-val="true" data-val-required="Please enter your email." id="Email" name="Email" type="text" value="">
+        <div class="validationMessage">
+            <span class="field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span>
+        </div>
+    </div>
+    <div class="d-flex flex-column mb-2">
+        <label for="Password">Password</label>
+        <input data-val="true" data-val-minlength="Password must be at least 8 characters." data-val-minlength-min="8" data-val-required="Please enter your password." id="Password" name="Password" type="password">
+        <div class="validationMessage">
+            <span class="field-validation-valid" data-valmsg-for="Password" data-valmsg-replace="true"></span>
+        </div>
+    </div>
+    <div class="d-flex flex-column mb-3">
+        <label for="ConfirmPassword">Confirm Password</label>
+        <input data-val="true" data-val-equalto="Passwords did not match." data-val-equalto-other="*.Password" id="ConfirmPassword" name="ConfirmPassword" type="password">
+        <div class="validationMessage">
+            <span class="field-validation-valid" data-valmsg-for="ConfirmPassword" data-valmsg-replace="true"></span>
+        </div>
+    </div>
+    <button class="mb-2 align-content-end btn btn-sample registerButton">Submit</button>
+</form>*@

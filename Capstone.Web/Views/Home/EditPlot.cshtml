@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "EditPlot";
+}
+@using Capstone.Web.Models
+@model Plot
+
+<div class="editPlotPage">
+    <h2 class="welcomeMessage">Edit Plot</h2>
+    @using (Html.BeginForm("EditPlot", "Home", FormMethod.Post, new { @class = "card rounded align-items-center form plot pl-5 pr-5 pt-4 pb-5" }))
+    {
+        <div class="mb-3">
+            <div>
+                @Html.LabelFor(m => m.Name, "Plant Name", new { @class = "plotNameLabel" })
+            </div>
+            <div class="">
+                @Html.TextBoxFor(m => m.Name, new { @class = "editPlotTextbox", placeholder = "Plant Name" })
+            </div>
+        </div>
+        <div class="mb-3">
+            <div>
+                @Html.LabelFor(m => m.Width, "Width (ft.)", new { @class = "plotWidthLabel" })
+            </div>
+            <div class="">
+                @Html.TextBoxFor(m => m.Width, new { @class = "editPlotTextbox", placeholder = "Width (ft.)" })
+            </div>
+        </div>
+        <div class="mb-3">
+            <div>
+                @Html.LabelFor(m => m.Length, "Length (ft.)", new { @class = "plotLengthLabel" })
+            </div>
+            <div class="">
+                @Html.TextBoxFor(m => m.Length, new { @class = "editPlotTextbox", placeholder = "Length (ft.)" })
+            </div>
+        </div>
+        <div>
+            <div>
+                @Html.LabelFor(m => m.HrsOfSun, "Hours of Sun", new { @class = "plotHrsSunLabel" })
+            </div>
+            <div class="">
+                @Html.TextBoxFor(m => m.HrsOfSun, new { @class = "editPlotTextbox", placeholder = "Hours of Sun Needed" })
+            </div>
+        </div>
+        <div>
+            @Html.HiddenFor(m => m.Id)
+            @Html.HiddenFor(m => m.GardenId)
+            @Html.HiddenFor(m => m.PlantId)
+        </div>
+        <div>
+            <button class="btn btn-create editPlotButton">Apply Changes</button>
+            @Html.ActionLink("Cancel", "GardenDetail", null, htmlAttributes: new { @class = "btn btn-delete editPlotButton" })
+
+        </div>
+    }
+</div>

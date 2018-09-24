@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "CreatePlot";
+}
+@model Capstone.Web.Models.Plot
+
+<h2 class="welcomeMessage">Create Plot</h2>
+
+<form action="/Home/CreatePlot?Length=4" method="post" id="PlotForm" class="needs-validation" novalidate>
+    <div class="form rounded plot pr-3 pl-3">
+        <div class="form-row">
+            <label for="Name">Name</label>
+            <input required class="form-control" data-val="true" data-val-required="The Name field is required." id="Name" name="Name" type="text" value="" />
+            <div class="validationMessage">
+                <span class="field-validation-valid" data-valmsg-for="Name" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+        <div class="d-flex flex-column mb-2">
+            <label for="Width">Width</label>
+            <input required class="form-control" data-val="true" data-val-number="The field Width must be a number." data-val-required="The Width field is required." id="Width" name="Width" type="text" value="0" />
+            <div class="validationMessage">
+                <span class="field-validation-valid" data-valmsg-for="Width" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+        <div class="d-flex flex-column mb-2">
+            <label for="Length">Length</label>
+            <input required class="form-control" data-val="true" data-val-number="The field Length must be a number." data-val-required="The Length field is required." id="Length" name="Length" type="text" value="0" />
+            <div class="validationMessage">
+                <span class="field-validation-valid" data-valmsg-for="Length" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+        <div class="d-flex flex-column mb-2">
+            <label for="HrsOfSun">Hours Of Sunlight</label>
+            <input required class="form-control" data-val="true" data-val-number="The field HrsOfSun must be a number." data-val-required="The HrsOfSun field is required." id="HrsOfSun" name="HrsOfSun" type="text" value="0" />
+            <div class="validationMessage">
+                <span class="field-validation-valid" data-valmsg-for="HrsOfSun" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+        <input type="hidden" id="GardenId" name="GardenId" value="@Model.GardenId">
+        <input data-val="true" data-val-number="The field GardenId must be a number." data-val-required="The GardenId field is required." id="GardenId" name="GardenId" type="hidden" value="0" />
+    </div>
+
+    <button type="submit" class="btn btn-sample mt-2">Submit</button>
+</form>

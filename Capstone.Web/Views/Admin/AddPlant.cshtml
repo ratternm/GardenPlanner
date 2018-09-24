@@ -1,0 +1,57 @@
+﻿@model Capstone.Web.Models.Plant
+
+<div class="row">
+    <div id="addPlantForm" class="card rounded align-items-center form plot">
+        @using (Html.BeginForm("AddPlant", "Admin", "Post"))
+        {
+            <h3 class="formHeader">
+                Add Plant
+            </h3>
+            <div class="d-flex flex-column mb-4 nameSection">
+                <div class="label">
+                    @Html.LabelFor(m => m.Name, "Name")
+                </div>
+                @Html.TextBoxFor(m => m.Name, new { placeholder = "Name" })
+                <div class="validationMessage">
+                    @Html.ValidationMessageFor(m => m.Name)
+                </div>
+            </div>
+            <div class="d-flex flex-column mb-4">
+                @Html.LabelFor(m => m.SizeSq, "Distance Needed (in.)")
+                @Html.TextBoxFor(m => m.SizeSq, new { placeholder = "in." })
+                <div class="validationMessage">
+                    @Html.ValidationMessageFor(m => m.SizeSq)
+                </div>
+            </div>
+            <div class="d-flex flex-column mb-4">
+                @Html.LabelFor(m => m.TempLow, "Lowest Viable Temperature (F)")
+                @Html.TextBoxFor(m => m.TempLow, new { placeholder = "Low Temp. (F)" })
+                <div class="validationMessage">
+                    @Html.ValidationMessageFor(m => m.TempLow)
+                </div>
+            </div>
+            <div class="d-flex flex-column mb-4">
+                @Html.LabelFor(m => m.TempHigh, "Highest Viable Temperature (F)")
+                @Html.TextBoxFor(m => m.TempHigh, new { placeholder = "High Temp. (F)" })
+                <div class="validationMessage">
+                    @Html.ValidationMessageFor(m => m.TempHigh)
+                </div>
+            </div>
+            <div class="d-flex flex-column mb-4">
+                @Html.LabelFor(m => m.SunReqHrs, "Required Hours of Sun/Day (e.g. 8)")
+                @Html.TextBoxFor(m => m.SunReqHrs, new { placeholder = "Hrs. of Sun" })
+                <div class="validationMessage">
+                    @Html.ValidationMessageFor(m => m.SunReqHrs)
+                </div>
+            </div>
+            <div class="d-flex flex-column mb-4">
+                @Html.LabelFor(m => m.Cost, "Cost Per Seed Packet (e.g. 20)")
+                @Html.TextBoxFor(m => m.Cost, new { placeholder = "Cost" })
+                <div class="validationMessage">
+                    @Html.ValidationMessageFor(m => m.Cost)
+                </div>
+            </div>
+            <button class="mb-2 align-content-end btn btn-create">Add Plant</button>
+        }
+    </div>
+</div>

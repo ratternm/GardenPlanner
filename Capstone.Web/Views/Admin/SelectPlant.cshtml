@@ -1,0 +1,62 @@
+﻿@using Capstone.Web.Models
+@model UpdatePlantViewModel
+
+<div class="rounded d-flex flex-column align-items-center form plot updatePlantForm formheader">
+    <div class="formHeader mb-2"><h3>Update Plant</h3></div>
+    <form action="/Admin/SelectPlant" method="get">
+        <select name="id" onchange="this.form.submit()" class="mb-3">
+            <option disabled selected> -- select an option -- </option>
+            @foreach (Plant item in Model.PlantList)
+            {
+                <option class="plantSelection" value="@item.Id">@item.Name</option>
+            }
+        </select>
+    </form>
+    @if (Model.Plant != null)
+    {
+        <div class="rounded d-flex flex-column align-items-center">
+            @using (Html.BeginForm("UpdatePlant", "Admin", "Post"))
+            {
+                <div class="d-flex flex-column mb-2">
+                    @Html.TextBoxFor(m => m.Plant.Id, new { value = Model.Plant.Id, type = "hidden" })
+                </div>
+                <div class="d-flex flex-column mb-3">
+                    @Html.LabelFor(m => m.Plant.Name, "Plant Name")
+                    @Html.TextBoxFor(m => m.Plant.Name, new { value = Model.Plant.Name, placeholder = "Plant Name" })
+                    <div class="validationMessage">
+                        @Html.ValidationMessageFor(m => m.Plant.Name)
+                    </div>
+                </div>
+                <div class="d-flex flex-column mb-3">
+                    @Html.LabelFor(m => m.Plant.SizeSq, "Distance Needed (in.)")
+                    @Html.TextBoxFor(m => m.Plant.SizeSq, new { value = Model.Plant.SizeSq, placeholder = "Distance Needed (in.)" })
+                    <div class="validationMessage">
+                        @Html.ValidationMessageFor(m => m.Plant.SizeSq)
+                    </div>
+                </div>
+                <div class="d-flex flex-column mb-3">
+                    @Html.LabelFor(m => m.Plant.TempLow, "Low Temperature (F)")
+                    @Html.TextBoxFor(m => m.Plant.TempLow, new { value = Model.Plant.TempLow, placeholder = "Low Temperature (F)" })
+                    <div class="validationMessage">
+                        @Html.ValidationMessageFor(m => m.Plant.TempLow)
+                    </div>
+                </div>
+                <div class="d-flex flex-column mb-3">
+                    @Html.LabelFor(m => m.Plant.TempHigh, "High Temperature (F)")
+                    @Html.TextBoxFor(m => m.Plant.TempHigh, new { value = Model.Plant.TempHigh, placeholder = "High Temperature (F)" })
+                    <div class="validationMessage">
+                        @Html.ValidationMessageFor(m => m.Plant.TempHigh)
+                    </div>
+                </div>
+                <div class="d-flex flex-column mb-4">
+                    @Html.LabelFor(m => m.Plant.Cost, "Cost Per Seed Packet")
+                    @Html.TextBoxFor(m => m.Plant.Cost, new { value = Model.Plant.Cost, placeholder = "Cost" })
+                    <div class="validationMessage">
+                        @Html.ValidationMessageFor(m => m.Plant.Cost)
+                    </div>
+                </div>
+                <button class="mb-2 align-content-end btn btn-create">Update Plant</button>
+            }
+        </div>
+    }
+</div>

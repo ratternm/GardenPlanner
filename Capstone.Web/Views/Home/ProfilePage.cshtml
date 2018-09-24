@@ -1,0 +1,80 @@
+﻿
+@{
+    ViewBag.Title = "Profile";
+
+}
+@using Capstone.Web.Models
+@model ProfileUpdate
+
+
+<h1 class="welcomeMessage">Welcome, @Model.User.FirstName @Model.User.LastName!</h1>
+
+@if (TempData["Success"] != null)
+{
+    <h3 class="alert alert-success" id="successMessage">@TempData["Success"]</h3>
+}
+@if (TempData["Failure"] != null)
+{
+    <h3 class="alert alert-warning" id="failureMessage">@TempData["Failure"]</h3>
+}
+
+
+@using (Html.BeginForm("ProfilePage", "Home", FormMethod.Post, htmlAttributes: new { @class = "profilePageForms row"}))
+{
+
+        <div class="container-fluid form plot rounded updateInformationForm
+                       col-lg-5">
+            <div class="d-flex flex-column mb-4">
+                <h2>Email Address</h2>
+
+                @Html.TextBoxFor(m => m.User.Email)
+                <div class="validationMessage">
+                </div>
+            </div>
+            <div class="d-flex flex-column mb-4">
+                <h2>First Name</h2>
+
+                @Html.TextBoxFor(m => m.User.FirstName)
+                <div class="validationMessage">
+                </div>
+            </div>
+            <div class="d-flex flex-column mb-4">
+                <h2>Last Name</h2>
+
+                @Html.TextBoxFor(m => m.User.LastName)
+                <div class="validationMessage">
+                </div>
+            </div>
+
+            <button type="submit"  class="mt-4 btn btn-create updateInfoButton">Update Information</button>
+        </div>
+
+        <div class="container-fluid form plot rounded updateGardenForm
+                       col-lg-5">
+            <div class="d-flex flex-column mb-4">
+                <h2>Garden Name</h2>
+
+                @Html.TextBoxFor(m => m.Garden.Name)
+                <div class="validationMessage">
+                </div>
+            </div>
+            <div class="d-flex flex-column mb-4">
+                <h2>Garden High</h2>
+
+                @Html.TextBoxFor(m => m.Garden.TempHigh, new { type = "number", min = "0", step = "1", max = "100" })
+                <div class="validationMessage">
+                </div>
+            </div>
+            <div class="d-flex flex-column mb-4">
+                <h2>Garden Low</h2>
+
+                @Html.TextBoxFor(m => m.Garden.TempLow, new { type = "number", min = "0", step = "1", max = "100" })
+                <div class="validationMessage">
+                </div>
+            </div>
+            <button type="submit" class="mt-4 btn btn-create updateGardenButton justify-content-center">Update Garden</button>
+            
+        </div>
+    
+        }
+    

@@ -1,0 +1,128 @@
+﻿
+@{
+    ViewBag.Title = "AssignPlants";
+    decimal plotsqft = Model.UserPlot.Length * Model.UserPlot.Width;
+    decimal plotMatCost;
+    int truncatedMatCost;
+    int idIncrement = 1;
+}
+@using Capstone.Web.Models
+@model AssignPlantViewModel
+
+<h2 class="welcomeMessage">@Model.UserPlot.Name</h2>
+@if (Model.UserPlot.Plant.Name != null)
+{
+    <h3>A @Model.UserPlot.Plant.Name Plot</h3>
+}
+<h3>Current Plot Cost: $<span id="currentPlotCost">@string.Format("{0:n0}", Model.UserPlot.PlotCost) </span> Total Square Feet: @plotsqft</h3>
+<div class="container-fluid">
+ 
+    @*<button class="open-button" onclick="openForm()">Open Materials</button>
+
+    <div class="form-popup" id="myForm">
+        <form class="form-container">
+            <h1>Material List</h1>
+
+            @foreach (var item in Model.Materials)
+            {
+                plotMatCost = plotsqft * item.MatCost;
+                truncatedMatCost = Convert.ToInt32(plotMatCost);
+                string temp = String.Format(new System.Globalization.CultureInfo("en-US"), "{0:C}", plotMatCost);
+                <input id="materialBox@(idIncrement)" type="checkbox" name="vehicle" value="@plotMatCost">@item.MatName  @temp<br>
+                idIncrement++;
+            }
+
+            <button type="s" id="addMaterials" class="btn">Add to plot</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </form>
+        
+    </div>*@
+
+</div>
+<div class="container">
+    <table class="table table-hover plot rounded">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col"></th>
+                <th scope="col">Compatibility</th>
+                <th scope="col">Cost</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var plant in Model.Plants)
+            {
+                
+                <tr class="@plant.Name">
+                    <th scope="row">@plant.Name</th>
+                    <th scope="row">
+                        @Html.ActionLink(
+                        "Assign To Plot",
+                        "AssignPlantsToPlot",
+                        "Home",
+                        routeValues: new {
+                        plantId = plant.Id,
+                        },htmlAttributes: new { @class = "btn btn-create", role = "button" })
+                    </th>
+                    <th scope="row">
+                        @if (!(Model.GardenLowTemp < plant.TempLow) || !(Model.GardenHighTemp > plant.TempHigh))
+                        {
+
+                            if (!(Model.GardenLowTemp < plant.TempLow) && !(Model.GardenHighTemp > plant.TempHigh))
+                            {
+
+                                if (plant.SunReqHrs <= Model.UserPlot.HrsOfSun)
+                                {
+                                    <span style="font-size: 2em; color: green;">
+                                        <i class="fas fa-leaf"></i>
+                                    </span>
+                                }
+                                else
+                                {
+                                    <span style="font-size: 2em; color: orange;">
+                                        <i class="fas fa-leaf"></i>
+                                    </span>
+                                }
+                            }
+                            else
+                            {
+                                <span style="font-size: 2em; color: Tomato;">
+                                    <i class="fas fa-leaf"></i>
+                                </span>
+                            }
+                        }
+                    </th>
+                    <th scope="row">
+                        $@string.Format("{0:n0}", Convert.ToString(plant.Cost))
+                    </th>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+    <div class="flex-column plot">
+        <span style="font-size: 2em; color: Tomato;">
+            <i class="fas fa-leaf"></i>
+        </span>
+        <span>Meets one Temp requirements</span>
+        <span style="font-size: 2em; color: orange;">
+            <i class="fas fa-leaf"></i>
+        </span>
+        <span>Meets both Temp requirements</span>
+        <span style="font-size: 2em; color: green;">
+            <i class="fas fa-leaf"></i>
+        </span>
+        <span>Meets both Temp and Sunlight requirements</span>
+    </div>
+</div>
+<script>
+    function openForm() {
+        document.getElementById("myForm").style.display = "block";
+    }
+
+    function closeForm() {
+        document.getElementById("myForm").style.display = "none";
+    }
+</script>
